@@ -9,7 +9,7 @@ import MapOsm from '../src/components/MapOsm.vue';
       <RouterLink class="px-2" to="/">Home</RouterLink>
       <RouterLink to="/about">About</RouterLink>
       <div class="container-fluid">
-        <h1> Open Street Map - Carte</h1>
+        <!-- <h1> Open Street Map - Carte</h1> -->
         <MapOsm/>
     </div>
     </nav>
