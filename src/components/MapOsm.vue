@@ -3,12 +3,12 @@
     // Import éléments de vue
     import { onMounted, ref, reactive } from 'vue'
     // Import leaflet
-import * as Leaflet from 'leaflet'
-// import geojson
-import { mapJSON } from '../data/map';
-    
-    // css leaflet
-import 'leaflet/dist/leaflet.css'
+    import * as Leaflet from 'leaflet'
+    // import geojson
+    import { mapJSON } from '../data/map';
+        
+        // css leaflet
+    import 'leaflet/dist/leaflet.css'
     
 
     // Canevas leaflet pour la carte
@@ -46,12 +46,38 @@ onMounted(async () => {
       .setView([47.4952, 	6.8045], 18) 
       // .setView(statueCoordinates, 15)
 
+       
+        
+        // specify popup options 
+        var customOptions =
+            {
+          'maxWidth': '400',
+          'width': '200',
+          'className' : 'custom'
+          }
     
 
       // GEOJSON || AFFICHAGE DE TOUT LES BATIMENTS 
       L.geoJSON(mapJSON, {
         onEachFeature: function (feature, layer) {
-            layer.bindPopup(feature.properties.name);
+            var content = `
+              <div class="popup-container">
+                <div class="left-section">
+                  <img src="../../public/assets/bu.webp" alt="maptime logo gif" class="rounded-image" />
+                </div>
+                <div class="right-section">
+                  <div class="info-column">
+                    <h2>${feature.properties.name}</h2>
+                    <h4>${feature.properties.description}</h4>
+                  </div>
+                  <div class="button-row">
+                    <button class="round-button">But trajet</button>
+                    <button class="round-button">But fav</button>
+                  </div>
+                </div>
+              </div>
+            `;
+            layer.bindPopup(content, customOptions);
         },
         style: function (feature) {
           return {
@@ -95,29 +121,10 @@ onMounted(async () => {
   
       // Ajout d'une infobulle
       marker2.bindPopup("Je suis la gendarmerie nationale")
+      // // Personnalisation du pop up leaflet
 
-// Assurez-vous que la carte est initialisée avant d'ajouter la couche du carré
-// if (map.value) {
-//   let squareLayer = Leaflet.geoJSON(squareGeoJSON).addTo(map.value);
 
-//   // Gestionnaire d'événements pour le survol du carré
-//   squareLayer.eachLayer(function (layer) {
-//     layer.on('mouseover', function () {
-//       // Modifier le style lors du survol
-//       layer.setStyle({
-//         weight: 3,
-//         color: 'red',
-//         fillOpacity: 1
-//         // Ajoutez d'autres styles de mise en évidence au survol
-//       });
-//     });
 
-//     layer.on('mouseout', function () {
-//       // Rétablir le style par défaut lorsque la souris quitte le carré
-//       squareLayer.resetStyle(layer);
-//     });
-//   });
-// }
       });
 
 
@@ -152,28 +159,6 @@ onMounted(async () => {
 
 
 
-// // Personnalisation du pop up leaflet
-// //  create map object, tell it to live in 'map' div and give initial latitude, longitude, zoom values 
-//     // create custom icon
-//     var firefoxIcon = Leaflet.icon({
-//         iconUrl: 'http://joshuafrazier.info/images/firefox.svg',
-//         iconSize: [38, 95], // size of the icon
-//         popupAnchor: [0,-15]
-//         });
-
-//     // create popup contents
-//     var customPopup = "Mozilla Toronto Offices<br/><img src='http://joshuafrazier.info/images/maptime.gif' alt='maptime logo gif' width='350px'/>";
-    
-//     // specify popup options 
-//     var customOptions =
-//         {
-//         'maxWidth': '500',
-//         'className' : 'custom'
-//         }
-    
-//     // create marker object, pass custom icon as option, pass content and options to popup, add to map
-//     Leaflet.marker([47.4952, 	6.8045], {icon: firefoxIcon}).bindPopup(customPopup,customOptions).addTo(map);
-
 
  
 </script>
@@ -189,23 +174,39 @@ onMounted(async () => {
         </span>
         <hr/> -->
         <div class="container">
-            <div id="map">
+            <div class="custom-popup" id="map">
             </div>
         </div>
     </div>
     
 </template>
 
-<style scoped>
+<style>
     #map {
         width:100%;
         height: 100vh;
     } 
 
-    /* css to customize Leaflet default styles  */
-  .custom .leaflet-popup-tip,
-  .custom .leaflet-popup-content-wrapper {
-      background: #e93434;
-      color: #ffffff;
-  }
+    .custom-popup .leaflet-popup-content-wrapper {
+      color:rgb(0, 0, 0) ;
+      font-size:16px;
+      line-height:24px;
+      border-radius: 15px;
+      }
+    .custom-popup .leaflet-popup-content-wrapper h2 {
+        color:red;
+      }
+    .custom-popup .leaflet-popup-content-wrapper .rounded-image{
+        border-radius: 5%;
+      }
+    .custom-popup .leaflet-popup-tip-container {
+      width:30px;
+      height:15px;
+      }
+    .custom-popup .leaflet-popup-tip {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+      }
+
 </style>
