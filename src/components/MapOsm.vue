@@ -29,6 +29,7 @@ onMounted(async () => {
       tileLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
         subdomains: 'abcd',
+        maxZoom: 20,
       });
       
   
@@ -37,8 +38,7 @@ onMounted(async () => {
       {
           zoomControl: true,    // Contrôle du Zoom
           layers: [tileLayer],  // Canvas pour dessiner la carte
-          maxZoom: 20,          // Zoom maxi autorisé
-          minZoom: 17            // Zomm mini autorisé
+          minZoom: 16            // Zomm mini autorisé
         })
       
       // projection de la carte avec centrage aux coordonnées indiquées, avec facteur d'agrandissemet
@@ -152,24 +152,48 @@ onMounted(async () => {
 
 
 
+// // Personnalisation du pop up leaflet
+// //  create map object, tell it to live in 'map' div and give initial latitude, longitude, zoom values 
+//     // create custom icon
+//     var firefoxIcon = Leaflet.icon({
+//         iconUrl: 'http://joshuafrazier.info/images/firefox.svg',
+//         iconSize: [38, 95], // size of the icon
+//         popupAnchor: [0,-15]
+//         });
+
+//     // create popup contents
+//     var customPopup = "Mozilla Toronto Offices<br/><img src='http://joshuafrazier.info/images/maptime.gif' alt='maptime logo gif' width='350px'/>";
+    
+//     // specify popup options 
+//     var customOptions =
+//         {
+//         'maxWidth': '500',
+//         'className' : 'custom'
+//         }
+    
+//     // create marker object, pass custom icon as option, pass content and options to popup, add to map
+//     Leaflet.marker([47.4952, 	6.8045], {icon: firefoxIcon}).bindPopup(customPopup,customOptions).addTo(map);
+
+
  
 </script>
 
 <template>
     <div>
-        <button type="button" @click="locMe()"> Se localiser</button>
+        <!-- <button type="button" @click="locMe()"> Se localiser</button>
         <span v-if="coordMe">
           coordonnées : {{ coordMe.latitude }} - {{ coordMe.longitude}}
         </span>
         <span v-else>
             Pas de coordonnées
         </span>
-        <hr/>
+        <hr/> -->
         <div class="container">
             <div id="map">
             </div>
         </div>
     </div>
+    
 </template>
 
 <style scoped>
@@ -178,4 +202,10 @@ onMounted(async () => {
         height: 100vh;
     } 
 
+    /* css to customize Leaflet default styles  */
+  .custom .leaflet-popup-tip,
+  .custom .leaflet-popup-content-wrapper {
+      background: #e93434;
+      color: #ffffff;
+  }
 </style>
