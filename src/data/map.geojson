@@ -5,6 +5,7 @@
       "type": "Feature",
       "properties": {
         "name": "Université de Technologie de Belfort-Montbéliard (UTBM)",
+        "description": "test (GACo)",
         "stroke": "#0080c0",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -29,6 +30,7 @@
       "type": "Feature",
       "properties": {
         "name": "UFR Sciences, Techniques et Gestion de l’Industrie (STGI)",
+        "description": "test (GACo)",
         "stroke": "#0080c0",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -57,6 +59,7 @@
       "type": "Feature",
       "properties": {
         "name": "UFR Sciences, Techniques et Gestion de l’Industrie (STGI)",
+        "description": "test (GACo)",
         "stroke": "#0080c0",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -94,6 +97,7 @@
       "type": "Feature",
       "properties": {
         "name": "Numérica | Incubateur d’entreprises",
+        "description": "test (GACo)",
         "stroke": "#0080c0",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -130,6 +134,7 @@
       "type": "Feature",
       "properties": {
         "name": "IFMS - Institut de Formations aux Métiers de la Santé",
+        "description": "test (GACo)",
         "stroke": "#0080c0",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -168,6 +173,7 @@
       "type": "Feature",
       "properties": {
         "name": "Grand Amphithéâtre",
+        "description": "test (GACo)",
         "stroke": "#0080c0",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -195,6 +201,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bibliothèque Universitaire",
+        "description": "test (GACo)",
         "stroke": "#004080",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -657,7 +664,8 @@
         "stroke-opacity": 1,
         "fill": "#800040",
         "fill-opacity": 0.8,
-        "name": "BUT Métiers du Multimédia et de l'Internet (MMI)"
+        "name": "BUT Métiers du Multimédia et de l'Internet (MMI)",
+        "description": "test (GACo)"
       },
       "geometry": {
         "coordinates": [
@@ -704,6 +712,7 @@
       "type": "Feature",
       "properties": {
         "name": "Département Gestion Administrative et Commerciale (GACo)",
+        "description": "test (GACo)",
         "stroke": "#800040",
         "stroke-width": 2,
         "stroke-opacity": 1,

@@ -5,6 +5,8 @@ export const mapJSON = {
       "type": "Feature",
       "properties": {
         "name": "Université de Technologie de Belfort-Montbéliard (UTBM)",
+        "description": "test (GACo)",
+         "image": "utbm.webp",
         "stroke": "#0080c0",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -29,6 +31,8 @@ export const mapJSON = {
       "type": "Feature",
       "properties": {
         "name": "UFR Sciences, Techniques et Gestion de l’Industrie (STGI)",
+        "description": "test (GACo)",
+        "image": "stgi.webp",
         "stroke": "#0080c0",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -57,6 +61,8 @@ export const mapJSON = {
       "type": "Feature",
       "properties": {
         "name": "UFR Sciences, Techniques et Gestion de l’Industrie (STGI)",
+        "description": "test (GACo)",
+        "image": "stgi.webp",
         "stroke": "#0080c0",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -94,6 +100,8 @@ export const mapJSON = {
       "type": "Feature",
       "properties": {
         "name": "Numérica | Incubateur d’entreprises",
+        "description": "test (GACo)",
+         "image": "numerica.webp",
         "stroke": "#0080c0",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -130,6 +138,8 @@ export const mapJSON = {
       "type": "Feature",
       "properties": {
         "name": "IFMS - Institut de Formations aux Métiers de la Santé",
+        "description": "test (GACo)",
+        "image": "ifms.webp",
         "stroke": "#0080c0",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -168,6 +178,8 @@ export const mapJSON = {
       "type": "Feature",
       "properties": {
         "name": "Grand Amphithéâtre",
+        "description": "test (GACo)",
+        "image": "grandamphi.webp",
         "stroke": "#0080c0",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -195,6 +207,8 @@ export const mapJSON = {
       "type": "Feature",
       "properties": {
         "name": "Bibliothèque Universitaire",
+        "description": "test (GACo)",
+        "image": "bu.webp",
         "stroke": "#004080",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -227,6 +241,8 @@ export const mapJSON = {
       "type": "Feature",
       "properties": {
         "name": "UFR Sciences, Techniques et Gestion de l’Industrie (STGI)",
+        "description": "test (GACo)",
+        "image": "stgi.webp",
         "stroke": "#0080c0",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -288,6 +304,8 @@ export const mapJSON = {
       "type": "Feature",
       "properties": {
         "name": "Département Mesures Physiques (MP)",
+        "description": "test (GACo)",
+        "image": "mp.webp",
         "stroke": "#800040",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -369,6 +387,8 @@ export const mapJSON = {
       "type": "Feature",
       "properties": {
         "name": "Département Réseaux et Télécoms (R&T)",
+        "description": "test (GACo)",
+        "image": "rt.webp",
         "stroke": "#800040",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -397,6 +417,8 @@ export const mapJSON = {
       "type": "Feature",
       "properties": {
         "name": "Amphithéâtre GACO/R&T",
+        "description": "test (GACo)",
+        "image": "rt.webp",
         "stroke": "#800040",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -434,6 +456,8 @@ export const mapJSON = {
       "type": "Feature",
       "properties": {
         "name": "Résidence Universitaire",
+        "description": "test (GACo)",
+        "image": "residence.webp",
         "stroke": "#004080",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -462,6 +486,8 @@ export const mapJSON = {
       "type": "Feature",
       "properties": {
         "name": "polyclinique",
+        "description": "test (GACo)",
+        "image": "polyclinique.webp",
         "stroke": "#0080c0",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -539,6 +565,7 @@ export const mapJSON = {
       "type": "Feature",
       "properties": {
         "name": "Restaurant Universitaire",
+        "image": "ru.webp",
         "stroke": "#004080",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -579,6 +606,7 @@ export const mapJSON = {
       "type": "Feature",
       "properties": {
         "name": "UFR Sciences, Techniques et Gestion de l’Industrie (STGI)",
+        "image": "stgi.webp",
         "stroke": "#0080c0",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -617,6 +645,7 @@ export const mapJSON = {
       "type": "Feature",
       "properties": {
         "name": "Numérica | Incubateur d’entreprises",
+        "image": "numerica.webp",
         "stroke": "#0080c0",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -657,7 +686,8 @@ export const mapJSON = {
         "stroke-opacity": 1,
         "fill": "#800040",
         "fill-opacity": 0.8,
-        "name": "BUT Métiers du Multimédia et de l'Internet (MMI)"
+        "name": "BUT Métiers du Multimédia et de l'Internet (MMI)",
+        "image": "mmi.webp",
       },
       "geometry": {
         "coordinates": [
@@ -704,6 +734,7 @@ export const mapJSON = {
       "type": "Feature",
       "properties": {
         "name": "Département Gestion Administrative et Commerciale (GACo)",
+        "image": "gaco.webp",
         "stroke": "#800040",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -728,6 +759,7 @@ export const mapJSON = {
       "type": "Feature",
       "properties": {
         "name": "Département Gestion Administrative et Commerciale (GACo)",
+        "image": "gaco.webp",
         "stroke": "#800040",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -756,6 +788,7 @@ export const mapJSON = {
       "type": "Feature",
       "properties": {
         "name": "Maison des Étudiants (MéMo)",
+        "image": "memo.webp",
         "stroke": "#004080",
         "stroke-width": 2,
         "stroke-opacity": 1,

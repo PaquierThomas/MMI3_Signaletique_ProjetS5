@@ -14,7 +14,49 @@
     // Canevas leaflet pour la carte
     let tileLayer = Leaflet.tileLayer
     // Initialisation de la carte sous forme de ref
-    let map = ref()
+let map = ref()
+
+let userMarker = null; // Variable pour stocker le marqueur de l'utilisateur
+
+function geoLocateUser(map) {
+  if ("geolocation" in navigator) {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      var userLat = position.coords.latitude;
+      var userLng = position.coords.longitude;
+
+      userMarker = L.marker([userLat, userLng]).addTo(map);
+      map.setView([userLat, userLng], 15); // Ajustez le niveau de zoom ici
+
+      function onLocationFound(e) {
+        var radius = e.accuracy / 2;
+        L.circle(e.latlng, radius).addTo(map);
+      }
+
+      function onLocationError(e) {
+        alert(e.message);
+      }
+
+      map.on('locationfound', onLocationFound);
+      map.on('locationerror', onLocationError);
+
+      map.locate({ setView: true, maxZoom: 16 });
+
+      // Recentrer la carte sur la position de l'utilisateur après 5 secondes d'inactivité
+      let timeoutID = null;
+      map.on('move', function () {
+        clearTimeout(timeoutID);
+        timeoutID = setTimeout(function () {
+          map.setView([userLat, userLng], 15);
+        }, 5000); // Temps d'attente en millisecondes (ici, 5 secondes)
+      });
+    });
+  } else {
+    alert("La géolocalisation n'est pas disponible sur votre appareil.");
+  }
+}
+
+ // Appel de la fonction pour géolocaliser l'utilisateur
+
 
     // Lorsque le composant est monté dans la vue
     // On affiche la carte
@@ -44,7 +86,9 @@ onMounted(async () => {
       // projection de la carte avec centrage aux coordonnées indiquées, avec facteur d'agrandissemet
       // .setView([40.6892, -74.0445], 17) 
       .setView([47.4952, 	6.8045], 18) 
-      // .setView(statueCoordinates, 15)
+  // .setView(statueCoordinates, 15)
+
+  geoLocateUser(map);
 
        
         
@@ -60,33 +104,60 @@ onMounted(async () => {
       // GEOJSON || AFFICHAGE DE TOUT LES BATIMENTS 
       L.geoJSON(mapJSON, {
         onEachFeature: function (feature, layer) {
-            var content = `
-              <div class="popup-container">
-                <div class="left-section">
-                  <img src="../../public/assets/bu.webp" alt="maptime logo gif" class="rounded-image" />
-                </div>
-                <div class="right-section">
-                  <div class="info-column">
-                    <h2>${feature.properties.name}</h2>
-                    <h4>${feature.properties.description}</h4>
-                  </div>
-                  <div class="button-row">
-                    <button class="round-button">But trajet</button>
-                    <button class="round-button">But fav</button>
-                  </div>
+          var content = `
+            <div class=" bg-white rounded-2xl flex flex-row items-center gap-5">
+              <div>
+                <img class="rounded-2xl min-w-60" src="../../public/assets/${feature.properties.image}" alt="image du bâtiment ${feature.properties.image}" />
+              </div>
+
+              <div class="flex flex-col gap-2">
+                <h2 class="font-semibold text-base">${feature.properties.name}</h2>
+                <p>${feature.properties.description}</p>
+                <div class="flex flex-row items-center justify-end gap-3">
+                  <button >
+                      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M38.8154 17.17L22.8414 1.17C21.282 -0.39 18.743 -0.39 17.1836 1.17L1.16956 17.17C-0.389854 18.73 -0.389854 21.27 1.16956 22.83L17.1836 38.83C18.743 40.39 21.282 40.39 22.8414 38.83L38.8154 22.83C40.3949 21.25 40.3949 18.73 38.8154 17.17ZM23.0014 24.99V19.99H16.004V25.99H12.0055V17.99C12.0055 16.89 12.9052 15.99 14.0047 15.99H23.0014V10.99L29.9988 17.99L23.0014 24.99Z" fill="#151515"/>
+                      </svg>
+                  </button>
+                  <button class="flex flex-row bg-Bleu rounded-2xl text-white p-2 gap-1 items-center">
+                      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6.25 26.25V6.25C6.25 5.5625 6.495 4.97375 6.985 4.48375C7.475 3.99375 8.06333 3.74917 8.75 3.75H21.25C21.9375 3.75 22.5263 3.995 23.0163 4.485C23.5063 4.975 23.7508 5.56334 23.75 6.25V26.25L15 22.5L6.25 26.25Z" fill="white"/>
+                      </svg>
+                      Enregistrer
+                  </button>
                 </div>
               </div>
+            </div>
             `;
-            layer.bindPopup(content, customOptions);
-        },
-        style: function (feature) {
-          return {
-                color: feature.properties.stroke,
-                fillColor: feature.properties.fill,
-                fillOpacity: feature.properties['fill-opacity'] || 1, 
-            };
-        }
-    }).addTo(map);
+            layer.on({
+            mouseover: function (e) {
+                layer.setStyle({
+                    fillColor: feature.properties.fill,
+                    fillOpacity: 1,
+                    weight: 3 // Épaisseur de la bordure à 2
+                });
+            },
+            mouseout: function (e) {
+                layer.setStyle({
+                    fillColor: feature.properties.fill,
+                    fillOpacity: feature.properties['fill-opacity'] || 1,
+                    weight: 2 // Rétablir l'épaisseur de la bordure à 1 par défaut
+                });
+            }
+        });
+
+        // Ajout de la popup
+        layer.bindPopup(content, customOptions);
+    },
+    style: function (feature) {
+        return {
+            color: feature.properties.stroke || 'black', // Couleur de la bordure par défaut
+            fillColor: feature.properties.fill || 'gray', // Couleur de remplissage par défaut
+            fillOpacity: feature.properties['fill-opacity'] || 1,
+            weight: 3 // Épaisseur de la bordure par défaut
+        };
+    }
+}).addTo(map);
 
       // Création d'un icone
       let myIcon = Leaflet.icon({
@@ -128,34 +199,7 @@ onMounted(async () => {
       });
 
 
-    // Hors de onMounted
-    // Coordonnées de l'utilisateur
-    const coordMe = reactive({ latitude:0, longitude:0 })
-
-    // Fonction de détection de la géolocalisation via navigateur
-    const locMe = () => {
-        let watcher = navigator.geolocation.watchPosition(
-            // Fonction à appeler en cas de success
-            showLocation
-        )
-    }
-    
-    // Fonction de sa localisation si elle réussi
-    const showLocation = (position) => {
-        // Récupération latitude et longitude
-        coordMe.latitude = position.coords.latitude;
-        coordMe.longitude = position.coords.longitude;
-        // Recentrage de la carte sur la position utilisateur
-        map.panTo([coordMe.latitude, coordMe.longitude])
-        // Création d'un marqueur
-        // L'icone ayant déja été instancié
-        // On n'a pas à la préciser, on le reprend par défaut
-        let markerMe = Leaflet.marker(
-            [coordMe.latitude, coordMe.longitude],
-        ).addTo(map)
-        // Ajout d'une infobulle
-        markerMe.bindPopup("Je suis là!!!!!!")
-}
+  
 
 
 
@@ -187,14 +231,10 @@ onMounted(async () => {
         height: 100vh;
     } 
 
-    .custom-popup .leaflet-popup-content-wrapper {
-      color:rgb(0, 0, 0) ;
-      font-size:16px;
-      line-height:24px;
-      border-radius: 15px;
+    /* .custom-popup .leaflet-popup-content-wrapper {
+      color: black;
       }
     .custom-popup .leaflet-popup-content-wrapper h2 {
-        color:red;
       }
     .custom-popup .leaflet-popup-content-wrapper .rounded-image{
         border-radius: 5%;
@@ -207,6 +247,6 @@ onMounted(async () => {
         background: transparent;
         border: none;
         box-shadow: none;
-      }
+      } */
 
 </style>
