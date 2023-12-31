@@ -6,7 +6,11 @@ export const mapJSON = {
       "properties": {
         "name": "Université de Technologie de Belfort-Montbéliard (UTBM)",
         "description": "test (GACo)",
-         "image": "utbm.webp",
+        "image": "utbm.webp",
+        "coordinate": [47.49606050543918, 6.804820477614698],
+       
+       
+    
         "stroke": "#0080c0",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -32,6 +36,8 @@ export const mapJSON = {
       "properties": {
         "name": "UFR Sciences, Techniques et Gestion de l’Industrie (STGI)",
         "description": "test (GACo)",
+        "direction": "UFR STGI - université de Franche-Comté",
+        "coordinate": [47.49507485134707, 6.80477048000287],
         "image": "stgi.webp",
         "stroke": "#0080c0",
         "stroke-width": 2,
@@ -62,6 +68,8 @@ export const mapJSON = {
       "properties": {
         "name": "UFR Sciences, Techniques et Gestion de l’Industrie (STGI)",
         "description": "test (GACo)",
+        "coordinate": [47.49507485134707, 6.80477048000287],
+        "direction": "UFR STGI - université de Franche-Comté",
         "image": "stgi.webp",
         "stroke": "#0080c0",
         "stroke-width": 2,
@@ -101,7 +109,8 @@ export const mapJSON = {
       "properties": {
         "name": "Numérica | Incubateur d’entreprises",
         "description": "test (GACo)",
-         "image": "numerica.webp",
+        "image": "numerica.webp",
+         "coordinate": [47.49594623497823, 6.8058675744292705],
         "stroke": "#0080c0",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -138,6 +147,7 @@ export const mapJSON = {
       "type": "Feature",
       "properties": {
         "name": "IFMS - Institut de Formations aux Métiers de la Santé",
+        "coordinate": [47.49471801407113, 6.8046956735163375],
         "description": "test (GACo)",
         "image": "ifms.webp",
         "stroke": "#0080c0",
@@ -179,6 +189,7 @@ export const mapJSON = {
       "properties": {
         "name": "Grand Amphithéâtre",
         "description": "test (GACo)",
+        "coordinate":[47.494938933005976, 6.804022603979867],
         "image": "grandamphi.webp",
         "stroke": "#0080c0",
         "stroke-width": 2,
@@ -208,6 +219,7 @@ export const mapJSON = {
       "properties": {
         "name": "Bibliothèque Universitaire",
         "description": "test (GACo)",
+        "coordinate": [47.49557230713817, 6.803813900255576],
         "image": "bu.webp",
         "stroke": "#004080",
         "stroke-width": 2,
@@ -242,6 +254,7 @@ export const mapJSON = {
       "properties": {
         "name": "UFR Sciences, Techniques et Gestion de l’Industrie (STGI)",
         "description": "test (GACo)",
+        "coordinate": [47.495249810074164, 6.804094991920259],
         "image": "stgi.webp",
         "stroke": "#0080c0",
         "stroke-width": 2,
@@ -305,6 +318,7 @@ export const mapJSON = {
       "properties": {
         "name": "Département Mesures Physiques (MP)",
         "description": "test (GACo)",
+        "coordinate":[47.495168076664186, 6.803735636359798],
         "image": "mp.webp",
         "stroke": "#800040",
         "stroke-width": 2,
@@ -388,6 +402,7 @@ export const mapJSON = {
       "properties": {
         "name": "Département Réseaux et Télécoms (R&T)",
         "description": "test (GACo)",
+        "coordinate": [47.494890196707075, 6.8031336996422125],
         "image": "rt.webp",
         "stroke": "#800040",
         "stroke-width": 2,
@@ -418,6 +433,7 @@ export const mapJSON = {
       "properties": {
         "name": "Amphithéâtre GACO/R&T",
         "description": "test (GACo)",
+        "coordinate": [47.49469623360557, 6.802958266000674],
         "image": "rt.webp",
         "stroke": "#800040",
         "stroke-width": 2,
@@ -457,6 +473,7 @@ export const mapJSON = {
       "properties": {
         "name": "Résidence Universitaire",
         "description": "test (GACo)",
+        "coordinate":[47.49415342629871, 6.801399621797849],
         "image": "residence.webp",
         "stroke": "#004080",
         "stroke-width": 2,
@@ -487,6 +504,7 @@ export const mapJSON = {
       "properties": {
         "name": "polyclinique",
         "description": "test (GACo)",
+        "coordinate": [47.49696532410041, 6.803558060101787],
         "image": "polyclinique.webp",
         "stroke": "#0080c0",
         "stroke-width": 2,
@@ -565,6 +583,7 @@ export const mapJSON = {
       "type": "Feature",
       "properties": {
         "name": "Restaurant Universitaire",
+        "coordinate": [47.49590615397377, 6.803609635800237],
         "image": "ru.webp",
         "stroke": "#004080",
         "stroke-width": 2,
@@ -607,6 +626,8 @@ export const mapJSON = {
       "properties": {
         "name": "UFR Sciences, Techniques et Gestion de l’Industrie (STGI)",
         "image": "stgi.webp",
+        "coordinate": [47.4953869854071, 6.804633794526265],
+        "direction": "UFR STGI - université de Franche-Comté",
         "stroke": "#0080c0",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -646,6 +667,7 @@ export const mapJSON = {
       "properties": {
         "name": "Numérica | Incubateur d’entreprises",
         "image": "numerica.webp",
+        "coordinate": [47.49551476199019, 6.8063572766904885],
         "stroke": "#0080c0",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -687,6 +709,7 @@ export const mapJSON = {
         "fill": "#800040",
         "fill-opacity": 0.8,
         "name": "BUT Métiers du Multimédia et de l'Internet (MMI)",
+        "coordinate": [47.495454641777044, 6.805200118401124],
         "image": "mmi.webp",
       },
       "geometry": {
@@ -735,6 +758,7 @@ export const mapJSON = {
       "properties": {
         "name": "Département Gestion Administrative et Commerciale (GACo)",
         "image": "gaco.webp",
+        "coordinate":[47.49437080500941, 6.803337840598986],
         "stroke": "#800040",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -759,6 +783,7 @@ export const mapJSON = {
       "type": "Feature",
       "properties": {
         "name": "Département Gestion Administrative et Commerciale (GACo)",
+        "coordinate": [47.49428028808922, 6.802872144023265],
         "image": "gaco.webp",
         "stroke": "#800040",
         "stroke-width": 2,
@@ -789,6 +814,7 @@ export const mapJSON = {
       "properties": {
         "name": "Maison des Étudiants (MéMo)",
         "image": "memo.webp",
+        "coordinate": [47.49472506469429, 6.8039321656980185],
         "stroke": "#004080",
         "stroke-width": 2,
         "stroke-opacity": 1,
